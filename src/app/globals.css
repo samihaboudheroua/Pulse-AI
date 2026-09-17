@@ -1,3 +1,21 @@
+:root {
+  --color-ink: #14161f;
+  --color-paper: #f7f7f4;
+  --color-signal: #ff5a3c;
+  --color-teal: #0b3d3d;
+  --color-line: #e3e2dd;
+}
+
+body {
+  font-family: var(--font-body), sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
 @import "tailwindcss";
 
 :root {

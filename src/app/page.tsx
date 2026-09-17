@@ -1,69 +1,122 @@
-import Image from "next/image";
+import Link from "next/link"
+import { FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6"
+import { CalendarClock, Sparkles, BarChart3 } from "lucide-react"
 
-export default function Home() {
+export default function WelcomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <div className="min-h-screen">
+      {/* Nav */}
+      <nav className="flex items-center justify-between px-8 py-6 md:px-16">
+        <span className="font-display text-lg font-bold tracking-tight">
+          PulseAI
+        </span>
+        <Link
+          href="/login"
+          className="rounded-full px-5 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
+          style={{ backgroundColor: "var(--color-ink)" }}
+        >
+          Get started
+        </Link>
+      </nav>
+
+      {/* Hero */}
+      <section className="grid grid-cols-1 items-center gap-12 px-8 py-16 md:grid-cols-2 md:px-16 md:py-24">
+        <div>
+          <h1 className="font-display text-4xl leading-tight md:text-5xl">
+            Gardez le pouls de vos réseaux sociaux
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-6 max-w-md text-base leading-relaxed text-gray-600">
+            PulseAI planifie vos publications, génère du contenu avec l'IA et
+            mesure vos performances sur Twitter, Instagram et LinkedIn — le
+            tout depuis un seul tableau de bord.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/login"
+            className="mt-8 inline-block rounded-full px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            style={{ backgroundColor: "var(--color-signal)" }}
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+            Commencer gratuitement
+          </Link>
+        </div>
+
+        {/* Pulse line graphic */}
+        {/* Pulse line graphic */}
+        <div className="relative h-48 w-full md:h-64">
+          <svg viewBox="0 0 400 160" className="h-full w-full">
+            <line x1="0" y1="80" x2="400" y2="80" stroke="var(--color-line)" strokeWidth="1" />
+            <path
+              d="M0 80 L120 80 L140 30 L160 130 L180 80 L400 80"
+              fill="none"
+              stroke="var(--color-signal)"
+              strokeWidth="2.5"
+              strokeLinejoin="round"
+              strokeLinecap="round"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <circle cx="60" cy="80" r="4" fill="var(--color-teal)" />
+            <circle cx="220" cy="80" r="4" fill="var(--color-teal)" />
+            <circle cx="330" cy="80" r="4" fill="var(--color-teal)" />
+          </svg>
+
+          {/* Icônes positionnées au-dessus des points */}
+          <div className="absolute left-[10%] top-[18%] rounded-full bg-white p-2 shadow-sm">
+            <FaXTwitter size={18} color="var(--color-ink)" />
+          </div>
+          <div className="absolute left-[52%] top-[-8%] rounded-full bg-white p-2 shadow-sm">
+            <FaInstagram size={18} color="var(--color-ink)" />
+          </div>
+          <div className="absolute left-[80%] top-[18%] rounded-full bg-white p-2 shadow-sm">
+            <FaLinkedinIn size={18} color="var(--color-ink)" />
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Services */}
+      {/* Services */}
+      <section className="px-8 py-20 md:px-16">
+        <div className="grid grid-cols-1 gap-16 md:grid-cols-3 md:divide-x" style={{ borderColor: "var(--color-line)" }}>
+          <div className="md:pr-10">
+            <div
+              className="flex h-14 w-14 items-center justify-center rounded-2xl"
+              style={{ backgroundColor: "var(--color-signal)" }}
+            >
+              <CalendarClock size={28} color="white" strokeWidth={1.75} />
+            </div>
+            <h3 className="font-display mt-6 text-xl">Planification</h3>
+            <p className="mt-3 text-sm leading-relaxed text-gray-600">
+              Programmez vos publications sur toutes vos plateformes à
+              l'avance, depuis un calendrier unique.
+            </p>
+          </div>
+
+          <div className="md:px-10">
+            <div
+              className="flex h-14 w-14 items-center justify-center rounded-2xl"
+              style={{ backgroundColor: "var(--color-teal)" }}
+            >
+              <Sparkles size={28} color="white" strokeWidth={1.75} />
+            </div>
+            <h3 className="font-display mt-6 text-xl">Génération de contenu</h3>
+            <p className="mt-3 text-sm leading-relaxed text-gray-600">
+              Laissez l'IA rédiger vos premiers brouillons de posts, que vous
+              ajustez avant publication.
+            </p>
+          </div>
+
+          <div className="md:pl-10">
+            <div
+              className="flex h-14 w-14 items-center justify-center rounded-2xl"
+              style={{ backgroundColor: "var(--color-ink)" }}
+            >
+              <BarChart3 size={28} color="white" strokeWidth={1.75} />
+            </div>
+            <h3 className="font-display mt-6 text-xl">Analyse des performances</h3>
+            <p className="mt-3 text-sm leading-relaxed text-gray-600">
+              Suivez l'engagement de vos publications et identifiez ce qui
+              fonctionne vraiment.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
-  );
+  )
 }
